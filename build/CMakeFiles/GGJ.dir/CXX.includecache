@@ -29,6 +29,8 @@ Player.hpp
 /home/eme/c++/GGJ/Player.hpp
 Entity.hpp
 /home/eme/c++/GGJ/Entity.hpp
+vector
+-
 
 /home/eme/c++/GGJ/RenderWindow.cpp
 RenderWindow.hpp
@@ -52,6 +54,8 @@ SDL2/SDL.h
 iostream
 -
 vector
+-
+tuple
 -
 SDL2/SDL.h
 -

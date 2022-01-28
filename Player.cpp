@@ -1,8 +1,9 @@
 #include "Player.hpp"
 
-Player::Player(Vector2f pos, SDL_Texture *tex, bool active) : Entity(pos, tex)
+Player::Player(Vector2f pos, SDL_Texture *tex, bool active, int index) : Entity(pos, tex)
 {
     this->set_active(active);
+    this->index = index;
 }
 
 void Player::key_up(int key)
@@ -53,6 +54,20 @@ void Player::move(int key)
     }
 
     this->set_position(dx, dy);
+}
+
+bool Player::collided_with_other_player(std::vector<Player> players)
+{
+    for (Player player : players)
+    {
+        if (this->get_index() != player.get_index())
+        {
+            if (this->is_collided_with(player, Vector2f(0, 0)))
+                return true;
+        }
+    }
+
+    return false;
 }
 
 void Player::update()

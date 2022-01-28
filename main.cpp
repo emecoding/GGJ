@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <tuple>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
@@ -42,6 +43,20 @@ void update_and_render_players(std::vector<Player> &players, RenderWindow window
     }
 }
 
+auto load_level(int level, RenderWindow window)
+{
+    std::vector<Entity> entities = {};
+    std::vector<Player> players = {Player(Vector2f(100, 0), window.load_texture("Grass_block.png"), true, 0), Player(Vector2f(200, 100), window.load_texture("Grass_block.png"), false, 1)};
+
+    struct es
+    {
+        std::vector<Entity> entities;
+        std::vector<Player> players;
+    };
+
+    return es{entities, players};
+}
+
 int main(int, char **)
 {
     if (init() == -1)
@@ -49,11 +64,18 @@ int main(int, char **)
 
     RenderWindow window("GGJ", 1280, 736);
 
-    std::vector<Entity> entities = {};
-    std::vector<Player> players = {Player(Vector2f(200, 0), window.load_texture("Grass_block.png"), true),
-                                   Player(Vector2f(100, 100), window.load_texture("Grass_block.png"), false)};
-
     int current_player = 0;
+    int current_level = 0;
+
+    bool just_changed_level = false;
+
+    std::vector<Entity>
+        entities = {};
+    std::vector<Player> players = {};
+
+    auto es = load_level(current_level, window);
+    entities = es.entities;
+    players = es.players;
 
     SDL_Event event;
 
@@ -72,7 +94,7 @@ int main(int, char **)
                     if (event.key.keysym.sym == SDLK_SPACE)
                     {
                         current_player++;
-                        if (current_player >= players.size())
+                        if (current_player >= 2)
                             current_player = 0;
                     }
                     players[current_player].move(event.key.keysym.sym);
@@ -85,6 +107,17 @@ int main(int, char **)
 
             utils::accumulator -= utils::time_step;
         }
+
+        if (players[current_player].collided_with_other_player(players) && just_changed_level == false)
+        {
+            current_level++;
+            auto es = load_level(current_level, window);
+            entities = es.entities;
+            players = es.players;
+            just_changed_level = true;
+        }
+        else
+            just_changed_level = false;
 
         window.clear();
         update_and_render_entities(entities, window);

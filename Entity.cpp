@@ -23,6 +23,15 @@ void Entity::set_position(float x, float y)
     position.X += x;
     position.Y += y;
 }
+
+bool Entity::is_collided_with(Entity B, Vector2f off_set)
+{
+    return this->get_position().Y + this->get_rect().h + off_set.Y >= B.get_position().Y &&
+           this->get_position().Y + off_set.Y <= B.get_position().Y + B.get_rect().h &&
+           this->get_position().X + off_set.X <= B.get_position().X + B.get_rect().w &&
+           this->get_position().X + this->get_rect().w + off_set.X >= B.get_position().X;
+}
+
 void Entity::set_size(Vector2f size)
 {
     this->size = size;
