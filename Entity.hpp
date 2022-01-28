@@ -8,6 +8,8 @@ class Entity
 public:
     Entity(Vector2f pos, SDL_Texture *tex);
 
+    void update();
+
     void set_size(Vector2f size);
 
     Vector2f get_position() { return position; }

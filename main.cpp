@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
@@ -22,6 +23,15 @@ int init()
     return 0;
 }
 
+void update_and_render_entities(std::vector<Entity> &entities, RenderWindow window)
+{
+    for (Entity entity : entities)
+    {
+        entity.update();
+        window.render(entity);
+    }
+}
+
 int main(int, char **)
 {
     if (init() == -1)
@@ -29,21 +39,19 @@ int main(int, char **)
 
     RenderWindow window("GGJ", 1280, 736);
 
-    SDL_Event event;
-
-    Entity e(Vector2f(0, 0), window.load_texture("Grass_block.png"));
+    std::vector<Entity> entities = {Entity(Vector2f(0, 0), window.load_texture("Grass_block.png"))};
 
     while (utils::game_running)
     {
         while (utils::can_poll_events())
         {
-            while (SDL_PollEvent(&event))
+            while (SDL_PollEvent(&utils::event))
             {
-                if (event.type == SDL_QUIT)
+                if (utils::event.type == SDL_QUIT)
                     utils::game_running = false;
-                if (event.type == SDL_KEYDOWN)
+                if (utils::event.type == SDL_KEYDOWN)
                 {
-                    if (event.key.keysym.sym == SDLK_ESCAPE)
+                    if (utils::event.key.keysym.sym == SDLK_ESCAPE)
                         utils::game_running = false;
                 }
             }
@@ -52,7 +60,8 @@ int main(int, char **)
         }
 
         window.clear();
-        window.render(e);
+        //window.render(e);
+        update_and_render_entities(entities, window);
         //UPDATE AND RENDER ENTITIES
         window.display();
 
