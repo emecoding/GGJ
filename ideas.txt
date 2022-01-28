@@ -1,7 +1,7 @@
 THEME: Duality/https://www.sanakirja.org/search.php?id=194161&l2=17
 https://globalgamejam.nl/
 
-TOKEN: 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
+TOKEN: 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
 
 Game where two players are in a room, and they have to get to each other.
     ----> Puzzle Game.
