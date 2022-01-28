@@ -53,18 +53,26 @@ int main(int, char **)
     std::vector<Player> players = {Player(Vector2f(200, 0), window.load_texture("Grass_block.png"), true),
                                    Player(Vector2f(100, 100), window.load_texture("Grass_block.png"), false)};
 
+    int current_player = 0;
+    SDL_Event event;
+
     while (utils::game_running)
     {
         while (utils::can_poll_events())
         {
-            while (SDL_PollEvent(&utils::event))
+            while (SDL_PollEvent(&event))
             {
-                if (utils::event.type == SDL_QUIT)
+                if (event.type == SDL_QUIT)
                     utils::game_running = false;
-                if (utils::event.type == SDL_KEYDOWN)
+                if (event.type == SDL_KEYDOWN)
                 {
-                    if (utils::event.key.keysym.sym == SDLK_ESCAPE)
+                    if (event.key.keysym.sym == SDLK_ESCAPE)
                         utils::game_running = false;
+                    players[current_player].move(event.key.keysym.sym);
+                }
+                if (event.type == SDL_KEYUP)
+                {
+                    players[current_player].key_up(event.key.keysym.sym);
                 }
             }
 

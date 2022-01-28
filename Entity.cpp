@@ -20,8 +20,8 @@ void Entity::set_position(Vector2f pos)
 }
 void Entity::set_position(float x, float y)
 {
-    position.X = x;
-    position.Y = y;
+    position.X += x;
+    position.Y += y;
 }
 void Entity::set_size(Vector2f size)
 {

@@ -17,8 +17,6 @@ namespace utils
 
     bool game_running = true;
 
-    SDL_Event event;
-
     int calculate_time()
     {
         int start_ticks = SDL_GetTicks();
