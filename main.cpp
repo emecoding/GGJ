@@ -54,6 +54,7 @@ int main(int, char **)
                                    Player(Vector2f(100, 100), window.load_texture("Grass_block.png"), false)};
 
     int current_player = 0;
+
     SDL_Event event;
 
     while (utils::game_running)
@@ -68,6 +69,12 @@ int main(int, char **)
                 {
                     if (event.key.keysym.sym == SDLK_ESCAPE)
                         utils::game_running = false;
+                    if (event.key.keysym.sym == SDLK_SPACE)
+                    {
+                        current_player++;
+                        if (current_player >= players.size())
+                            current_player = 0;
+                    }
                     players[current_player].move(event.key.keysym.sym);
                 }
                 if (event.type == SDL_KEYUP)
