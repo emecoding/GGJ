@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/eme/c++/GGJ/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/GGJ.dir/main.cpp.o -c /home/eme/c++/GGJ/main.cpp",
+  "file": "/home/eme/c++/GGJ/main.cpp"
+},
+{
+  "directory": "/home/eme/c++/GGJ/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/GGJ.dir/RenderWindow.cpp.o -c /home/eme/c++/GGJ/RenderWindow.cpp",
+  "file": "/home/eme/c++/GGJ/RenderWindow.cpp"
+},
+{
+  "directory": "/home/eme/c++/GGJ/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/GGJ.dir/Entity.cpp.o -c /home/eme/c++/GGJ/Entity.cpp",
+  "file": "/home/eme/c++/GGJ/Entity.cpp"
+}
+]

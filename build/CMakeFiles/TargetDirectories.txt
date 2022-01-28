@@ -1,0 +1,5 @@
+/home/eme/c++/GGJ/build/CMakeFiles/rebuild_cache.dir
+/home/eme/c++/GGJ/build/CMakeFiles/edit_cache.dir
+/home/eme/c++/GGJ/build/CMakeFiles/GGJ.dir
+/home/eme/c++/GGJ/build/CMakeFiles/package_source.dir
+/home/eme/c++/GGJ/build/CMakeFiles/package.dir

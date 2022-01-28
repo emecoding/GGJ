@@ -1,0 +1,16 @@
+THEME: Duality/https://www.sanakirja.org/search.php?id=194161&l2=17
+https://globalgamejam.nl/
+
+Game where two players are in a room, and they have to get to each other.
+    ----> Puzzle Game.
+
+User changes the players with some key.
+Players are identical
+    ----> Maybe different color.
+        ----> Draw more.
+
+
+
+Game type:
+    -TOP DOWN
+
