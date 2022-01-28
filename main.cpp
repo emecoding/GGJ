@@ -6,6 +6,7 @@
 #include "RenderWindow.hpp"
 #include "Utils.hpp"
 #include "Entity.hpp"
+#include "Player.hpp"
 
 int init()
 {
@@ -32,6 +33,15 @@ void update_and_render_entities(std::vector<Entity> &entities, RenderWindow wind
     }
 }
 
+void update_and_render_players(std::vector<Player> &players, RenderWindow window)
+{
+    for (Player player : players)
+    {
+        player.update();
+        window.render(player);
+    }
+}
+
 int main(int, char **)
 {
     if (init() == -1)
@@ -39,7 +49,9 @@ int main(int, char **)
 
     RenderWindow window("GGJ", 1280, 736);
 
-    std::vector<Entity> entities = {Entity(Vector2f(0, 0), window.load_texture("Grass_block.png"))};
+    std::vector<Entity> entities = {};
+    std::vector<Player> players = {Player(Vector2f(200, 0), window.load_texture("Grass_block.png"), true),
+                                   Player(Vector2f(100, 100), window.load_texture("Grass_block.png"), false)};
 
     while (utils::game_running)
     {
@@ -60,9 +72,8 @@ int main(int, char **)
         }
 
         window.clear();
-        //window.render(e);
         update_and_render_entities(entities, window);
-        //UPDATE AND RENDER ENTITIES
+        update_and_render_players(players, window);
         window.display();
 
         utils::perform_delay(window);

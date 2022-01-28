@@ -172,6 +172,33 @@ Entity.cpp.s:
 	$(MAKE) -f CMakeFiles/GGJ.dir/build.make CMakeFiles/GGJ.dir/Entity.cpp.s
 .PHONY : Entity.cpp.s
 
+Player.o: Player.cpp.o
+
+.PHONY : Player.o
+
+# target to build an object file
+Player.cpp.o:
+	$(MAKE) -f CMakeFiles/GGJ.dir/build.make CMakeFiles/GGJ.dir/Player.cpp.o
+.PHONY : Player.cpp.o
+
+Player.i: Player.cpp.i
+
+.PHONY : Player.i
+
+# target to preprocess a source file
+Player.cpp.i:
+	$(MAKE) -f CMakeFiles/GGJ.dir/build.make CMakeFiles/GGJ.dir/Player.cpp.i
+.PHONY : Player.cpp.i
+
+Player.s: Player.cpp.s
+
+.PHONY : Player.s
+
+# target to generate assembly for a file
+Player.cpp.s:
+	$(MAKE) -f CMakeFiles/GGJ.dir/build.make CMakeFiles/GGJ.dir/Player.cpp.s
+.PHONY : Player.cpp.s
+
 RenderWindow.o: RenderWindow.cpp.o
 
 .PHONY : RenderWindow.o
@@ -240,6 +267,9 @@ help:
 	@echo "... Entity.o"
 	@echo "... Entity.i"
 	@echo "... Entity.s"
+	@echo "... Player.o"
+	@echo "... Player.i"
+	@echo "... Player.s"
 	@echo "... RenderWindow.o"
 	@echo "... RenderWindow.i"
 	@echo "... RenderWindow.s"

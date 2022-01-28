@@ -35,16 +35,16 @@ SDL_Texture *RenderWindow::load_texture(const char *file_path)
 void RenderWindow::render(Entity &entity)
 {
     SDL_Rect src;
-    src.x = entity.get_position().X;
-    src.y = entity.get_position().Y;
-    src.w = entity.get_size().X;
-    src.h = entity.get_size().Y;
+    src.x = entity.get_rect().x;
+    src.y = entity.get_rect().y;
+    src.w = entity.get_rect().w;
+    src.h = entity.get_rect().h;
 
     SDL_Rect dst;
     dst.x = entity.get_position().X;
     dst.y = entity.get_position().Y;
-    dst.w = entity.get_size().X;
-    dst.h = entity.get_size().Y;
+    dst.w = entity.get_rect().w;
+    dst.h = entity.get_rect().h;
 
     SDL_RenderCopy(renderer, entity.get_texture(), &src, &dst);
 }

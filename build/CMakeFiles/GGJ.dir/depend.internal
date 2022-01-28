@@ -5,6 +5,11 @@ CMakeFiles/GGJ.dir/Entity.cpp.o
  /home/eme/c++/GGJ/Entity.cpp
  /home/eme/c++/GGJ/Entity.hpp
  /home/eme/c++/GGJ/Mathf.hpp
+CMakeFiles/GGJ.dir/Player.cpp.o
+ /home/eme/c++/GGJ/Entity.hpp
+ /home/eme/c++/GGJ/Mathf.hpp
+ /home/eme/c++/GGJ/Player.cpp
+ /home/eme/c++/GGJ/Player.hpp
 CMakeFiles/GGJ.dir/RenderWindow.cpp.o
  /home/eme/c++/GGJ/Entity.hpp
  /home/eme/c++/GGJ/Mathf.hpp
@@ -13,6 +18,7 @@ CMakeFiles/GGJ.dir/RenderWindow.cpp.o
 CMakeFiles/GGJ.dir/main.cpp.o
  /home/eme/c++/GGJ/Entity.hpp
  /home/eme/c++/GGJ/Mathf.hpp
+ /home/eme/c++/GGJ/Player.hpp
  /home/eme/c++/GGJ/RenderWindow.hpp
  /home/eme/c++/GGJ/Utils.hpp
  /home/eme/c++/GGJ/main.cpp

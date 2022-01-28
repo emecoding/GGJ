@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/eme/c++/GGJ/Entity.cpp" "/home/eme/c++/GGJ/build/CMakeFiles/GGJ.dir/Entity.cpp.o"
+  "/home/eme/c++/GGJ/Player.cpp" "/home/eme/c++/GGJ/build/CMakeFiles/GGJ.dir/Player.cpp.o"
   "/home/eme/c++/GGJ/RenderWindow.cpp" "/home/eme/c++/GGJ/build/CMakeFiles/GGJ.dir/RenderWindow.cpp.o"
   "/home/eme/c++/GGJ/main.cpp" "/home/eme/c++/GGJ/build/CMakeFiles/GGJ.dir/main.cpp.o"
   )
