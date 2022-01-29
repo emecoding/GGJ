@@ -16,6 +16,7 @@ CMakeFiles/GGJ.dir/RenderWindow.cpp.o: ../RenderWindow.cpp
 CMakeFiles/GGJ.dir/RenderWindow.cpp.o: ../RenderWindow.hpp
 
 CMakeFiles/GGJ.dir/main.cpp.o: ../Entity.hpp
+CMakeFiles/GGJ.dir/main.cpp.o: ../Maps.hpp
 CMakeFiles/GGJ.dir/main.cpp.o: ../Mathf.hpp
 CMakeFiles/GGJ.dir/main.cpp.o: ../Player.hpp
 CMakeFiles/GGJ.dir/main.cpp.o: ../RenderWindow.hpp

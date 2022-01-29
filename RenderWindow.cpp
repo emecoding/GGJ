@@ -37,8 +37,8 @@ void RenderWindow::render(Entity &entity)
     SDL_Rect src;
     src.x = entity.get_rect().x;
     src.y = entity.get_rect().y;
-    src.w = entity.get_rect().w * 2;
-    src.h = entity.get_rect().h * 2;
+    src.w = entity.get_rect().w;
+    src.h = entity.get_rect().h;
 
     SDL_Rect dst;
     dst.x = entity.get_position().X;

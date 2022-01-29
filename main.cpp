@@ -8,6 +8,7 @@
 #include "Utils.hpp"
 #include "Entity.hpp"
 #include "Player.hpp"
+#include "Maps.hpp"
 
 int init()
 {
@@ -54,11 +55,35 @@ std::vector<SDL_Texture *> get_player_idle_frames(RenderWindow window)
     return idle_frames;
 }
 
-auto load_level(int level, RenderWindow window)
+auto load_level(const int map[12][20], RenderWindow window)
 {
     std::vector<SDL_Texture *> player_idle_frames = get_player_idle_frames(window);
 
     std::vector<Entity> entities = {};
+    //std::vector<Entity> players = {}
+
+    SDL_Texture *grass_texture = window.load_texture("Grass_block.png");
+    SDL_Texture *texture = NULL;
+
+    for (int i = 0; i < 20; i++)
+    {
+
+        for (int j = 0; j < 12; j++)
+        {
+            switch (map[i][j])
+            {
+            case 0:
+                texture = grass_texture;
+                break;
+            default:
+                break;
+            }
+
+            Entity e(Vector2f(64 * i, 64 * j), texture);
+            entities.push_back(e);
+        }
+    }
+
     std::vector<Player> players = {Player(Vector2f(100, 0), window.load_texture("res/Player/Player_idle01.png"), true, 0, player_idle_frames), Player(Vector2f(200, 100), window.load_texture("res/Player/Player_idle01.png"), false, 1, player_idle_frames)};
 
     struct es
@@ -86,7 +111,7 @@ int main(int, char **)
         entities = {};
     std::vector<Player> players = {};
 
-    auto es = load_level(current_level, window);
+    auto es = load_level(maps::map1, window);
     entities = es.entities;
     players = es.players;
 
@@ -124,7 +149,7 @@ int main(int, char **)
         if (players[current_player].collided_with_other_player(players) && just_changed_level == false)
         {
             current_level++;
-            auto es = load_level(current_level, window);
+            auto es = load_level(maps::map1, window);
             entities = es.entities;
             players = es.players;
             just_changed_level = true;

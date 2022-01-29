@@ -18,6 +18,10 @@ SDL2/SDL.h
 SDL2/SDL_image.h
 -
 
+/home/eme/c++/GGJ/Maps.hpp
+vector
+-
+
 /home/eme/c++/GGJ/Mathf.hpp
 iostream
 -
@@ -69,4 +73,6 @@ Entity.hpp
 /home/eme/c++/GGJ/Entity.hpp
 Player.hpp
 /home/eme/c++/GGJ/Player.hpp
+Maps.hpp
+/home/eme/c++/GGJ/Maps.hpp
 
