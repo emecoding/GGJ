@@ -1,9 +1,12 @@
 #include "Player.hpp"
 
-Player::Player(Vector2f pos, SDL_Texture *tex, bool active, int index) : Entity(pos, tex)
+Player::Player(Vector2f pos, SDL_Texture *tex, bool active, int index, std::vector<SDL_Texture *> idle_frames) : Entity(pos, tex)
 {
     this->set_active(active);
     this->index = index;
+    this->idle_frames = idle_frames;
+    last_frame = new int(0);
+    current_frame = new int(0);
 }
 
 void Player::key_up(int key)
@@ -72,6 +75,17 @@ bool Player::collided_with_other_player(std::vector<Player> players)
 
 void Player::update()
 {
+    *last_frame += 1;
+    if (*last_frame >= frame_rate)
+    {
+        *current_frame += 1;
+        if (*current_frame >= idle_frames.size())
+            *current_frame = 0;
+
+        set_texture(idle_frames[*current_frame]);
+
+        *last_frame = 0;
+    }
 }
 
 void Player::set_active(bool a)

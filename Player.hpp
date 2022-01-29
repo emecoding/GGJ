@@ -5,7 +5,7 @@
 class Player : public Entity
 {
 public:
-    Player(Vector2f pos, SDL_Texture *tex, bool active, int index);
+    Player(Vector2f pos, SDL_Texture *tex, bool active, int index, std::vector<SDL_Texture *> idle_frames);
 
     void update();
     void move(int key);
@@ -27,4 +27,10 @@ private:
     bool moving_left = false;
 
     float speed = 10.0f;
+
+    int frame_rate = 30;
+    int *last_frame;
+    int *current_frame;
+
+    std::vector<SDL_Texture *> idle_frames = {};
 };

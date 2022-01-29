@@ -43,10 +43,23 @@ void update_and_render_players(std::vector<Player> &players, RenderWindow window
     }
 }
 
+std::vector<SDL_Texture *> get_player_idle_frames(RenderWindow window)
+{
+    std::vector<SDL_Texture *> idle_frames = {};
+
+    idle_frames.push_back(window.load_texture("res/Player/Player_idle01.png"));
+    idle_frames.push_back(window.load_texture("res/Player/Player_idle02.png"));
+    idle_frames.push_back(window.load_texture("res/Player/Player_idle03.png"));
+
+    return idle_frames;
+}
+
 auto load_level(int level, RenderWindow window)
 {
+    std::vector<SDL_Texture *> player_idle_frames = get_player_idle_frames(window);
+
     std::vector<Entity> entities = {};
-    std::vector<Player> players = {Player(Vector2f(100, 0), window.load_texture("Grass_block.png"), true, 0), Player(Vector2f(200, 100), window.load_texture("Grass_block.png"), false, 1)};
+    std::vector<Player> players = {Player(Vector2f(100, 0), window.load_texture("res/Player/Player_idle01.png"), true, 0, player_idle_frames), Player(Vector2f(200, 100), window.load_texture("res/Player/Player_idle01.png"), false, 1, player_idle_frames)};
 
     struct es
     {

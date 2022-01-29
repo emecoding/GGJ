@@ -15,6 +15,8 @@ public:
     void set_position(Vector2f pos);
     void set_position(float x, float);
 
+    void set_texture(SDL_Texture *tex);
+
     bool is_collided_with(Entity B, Vector2f off_set);
 
     Vector2f get_position() { return position; }
